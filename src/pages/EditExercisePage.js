@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 
 export const EditExercisePage = ({ exerciseToEdit }) => {
-    console.log(exerciseToEdit);
+    
     const [name, setName] = useState(exerciseToEdit.name);
     const [reps, setReps] = useState(exerciseToEdit.reps);
     const [weight, setWeight] = useState(exerciseToEdit.weight);
@@ -20,10 +20,12 @@ export const EditExercisePage = ({ exerciseToEdit }) => {
             },
         });
         if (response.status === 200) {
-            alert("Successfully edited the movie!");
+            alert("Successfully edited the exercise!");
         } else {
-            alert(`Failed to edit movie, status code = ${response.status}`);
+            alert(`Failed to edit exercise, status code = ${response.status}`);
         }
+
+        history.push('/');
     }
 
     return (
