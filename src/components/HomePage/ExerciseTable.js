@@ -1,8 +1,8 @@
 import React from "react";
 import Exercise from "./Exercise"
 
-function ExerciseTable({ exercises, onDelete }) {
-    
+function ExerciseTable({ exercises, onDelete, onEdit }) {
+
     return (
         <table id="exercises">
             <thead>
@@ -18,11 +18,12 @@ function ExerciseTable({ exercises, onDelete }) {
             </thead>
 
             <tbody>
-                {exercises.map((exercise, i) => <Exercise exercise={ exercise }
-                    onDelete= { onDelete }
+                {exercises.map((exercise, i) => <Exercise exercise={exercise}
+                    onDelete={onDelete}
+                    onEdit={onEdit}
                     key={i} />)}
             </tbody>
-            
+
         </table>
     );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineDelete, AiOutlineEdit} from 'react-icons/ai'
 
-function Exercise({ exercise, onDelete }) {
+function Exercise({ exercise, onDelete, onEdit }) {
     return (
         <tr>
             <td>{exercise.name}</td>
@@ -9,7 +9,7 @@ function Exercise({ exercise, onDelete }) {
             <td>{exercise.weight}</td>
             <td>{exercise.unit}</td>
             <td>{exercise.date}</td>
-            <td><AiOutlineEdit /></td>
+            <td><AiOutlineEdit onClick={() => onEdit(exercise)}/></td>
             <td><AiOutlineDelete onClick={() => onDelete(exercise._id)}/></td>
         </tr>
     );

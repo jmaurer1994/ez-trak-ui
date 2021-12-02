@@ -2,13 +2,22 @@ import React from 'react';
 import ExerciseTable from '../components/HomePage/ExerciseTable'
 import { useState, useEffect } from 'react';
 
-function HomePage() {
+import { useHistory } from 'react-router-dom';
+
+function HomePage({ setExerciseToEdit }) {
     const [exercises, setExercises] = useState([]);
+
+    let history = useHistory();
 
     const loadExercises = async () => {
         const response = await fetch('/exercises');
         const exercises = await response.json();
         setExercises(exercises);
+    }
+
+    const onEdit = exercise => {
+        setExerciseToEdit(exercise);
+        history.push("/edit-exercise");
     }
 
     const onDelete = async _id => {
@@ -32,7 +41,7 @@ function HomePage() {
 
     return (
         <div className="container">
-            <ExerciseTable exercises={ exercises } onDelete={ onDelete }/>
+            <ExerciseTable exercises={ exercises } onDelete={ onDelete } onEdit={ onEdit }/>
         </div>
     );
 }
