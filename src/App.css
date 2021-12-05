@@ -13,6 +13,11 @@ h1 {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
+h1 a{
+    text-decoration: none;
+    color:white;
+}
+
 h2 {
     color: rgb(230, 230, 230);
     font-size: 2.0rem;
@@ -53,10 +58,7 @@ thead {
     background-color: rgb(66, 60, 90);
 }
 
-form {
-    max-width: 250px;
-    margin: 0 auto;
-}
+
 
 form, fieldset, legend, label, input {
     font-family: 'Helvetica', sans-serif;
@@ -87,8 +89,6 @@ input {
     padding: 5px 5px;
     color: black;
     text-align: center;
-    display: block;
-    width: 80%;
     margin: 0 auto;
 }
 
@@ -105,4 +105,27 @@ input {
 .container {
     margin: 0 auto;
     max-width: 800px;
+}
+
+div.container div{
+    display: inline-block;
+}
+div.container div div{ 
+    display: block;
+    text-align: right;
+    margin: 0 auto;
+}
+
+div.container div div label{
+    margin: 0 auto;
+    text-align: left;
+}
+
+div.container div div input { 
+
+}
+
+div.container div button { 
+    
+    padding: 5px 10px;
 }

@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 
 function CreateExercisePage() {
 
-    const [name, setName] = useState('Squats');
-    const [reps, setReps] = useState(Math.floor(Math.random()*10));
-    const [weight, setWeight] = useState(Math.floor(Math.random() * 100));
+    const [name, setName] = useState('');
+    const [reps, setReps] = useState('');
+    const [weight, setWeight] = useState('');
     const [unit, setUnit] = useState('');
-    const [date, setDate] = useState('11-' + Math.floor((Math.random()*30)) + '-21');
+    const [date, setDate] = useState('');
 
     let history = useHistory();
 
@@ -30,45 +30,73 @@ function CreateExercisePage() {
     };
 
     return (
-        <div>
-            <h2>Log exercise</h2>
-            <input
-                type="text"
-                placeholder="Enter name of exercise here"
-                value={ name }
-                onChange={e => setName(e.target.value)} />
-            <input
-                type="number"
-                value={ reps }
-                placeholder="Enter reps here"
-                onChange={e => setReps(e.target.value)} />
-            <input
-                type="number"
-                value={ weight }
-                placeholder="Enter weight here"
-                onChange={e => setWeight(e.target.value)} />
+        <div className="container form-container">
+            <h2>Create exercise</h2>
+            <div>
+                <div>
+                    <label for="name">Exercise Name: </label>
+                    <input
+                        type="text"
+                        value={name}
+                        id="name"
+                        placeholder="Enter name of exercise here"
+                        onChange={e => setName(e.target.value)} />
+                </div>
 
-            <input
-                type="text"
-                list="unit_list"
-                placeholder="Choose unit (lb/kg)"
-                onChange={e => setUnit(e.target.value)} />
+                <div>
+                    <label for="reps">Reps: </label>
 
+                    <input
+                        type="number"
+                        value={reps}
+                        id="reps"
+                        placeholder="Enter reps here"
+                        onChange={e => setReps(e.target.value)} />
+                </div>
 
-            <datalist id="unit_list">
-                <option value="lb" />
-                <option value="kg" />
-            </datalist>
+                <div>
+                    <label for="weight">Weight: </label>
 
-            <input
-                type="text"
-                placeholder="Enter date here"
-                value={ date }
-                onChange={e => setDate(e.target.value)} />
-           
-            <button
-                onClick={ createExercise }
-            >Add</button>
+                    <input
+                        type="number"
+                        value={weight}
+                        id="weight"
+                        placeholder="Enter weight here"
+                        onChange={e => setWeight(e.target.value)} />
+                </div>
+
+                <div>
+                    <label for="unit">Choose unit (kg/lb): </label>
+
+                    <input
+                        type="text"
+                        list="unit_list"
+                        value={unit}
+                        id="unit"
+                        placeholder="Choose unit (lb/kg)"
+                        onChange={e => setUnit(e.target.value)} />
+
+                    <datalist id="unit_list">
+                        <option value="lb" />
+                        <option value="kg" />
+                    </datalist>
+                </div>
+
+                <div>
+                    <label for="date">Date: </label>
+
+                    <input
+                        type="text"
+                        value={date}
+                        id="date"
+                        placeholder="Enter date here"
+                        onChange={e => setDate(e.target.value)} />
+                </div>
+
+                <button
+                    onClick={createExercise}
+                >Save</button>
+            </div>
         </div>
     );
 }
