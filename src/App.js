@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
 import CreateExercisePage from './pages/CreateExercisePage';
@@ -12,7 +12,7 @@ function App() {
     return (
         <div className="App">
             <div className="App-header">
-                <h1><a href="/"> EZ-Trak</a></h1>
+                <h1><a href="/">EZ-Trak</a></h1>
             </div>
 
             <Router>

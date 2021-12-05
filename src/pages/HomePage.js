@@ -1,5 +1,5 @@
 import React from 'react';
-import ExerciseTable from '../components/HomePage/ExerciseTable'
+import ExerciseTable from '../components/ExerciseTable'
 import { useState, useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
